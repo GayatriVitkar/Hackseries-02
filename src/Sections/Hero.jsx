@@ -1,17 +1,31 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import PhoenixLogo from '../assets/phoenix-vector.svg';
+import EvilEye from '../Components/EvilEye';
+
 
 const Hero = () => {
     return (
-        <section className="relative min-h-[85vh] w-full bg-[#050505] flex items-center justify-center overflow-hidden">
+        <section className="relative min-h-[85vh] w-full bg-[#060010] flex items-center justify-center overflow-hidden">
 
-            <div className="absolute w-[400px] h-[400px] md:w-[700px] md:h-[700px] bg-[#D4AF37]/5 blur-[120px] rounded-full z-0" />
-
-            <div className="absolute inset-0 opacity-[0.05] pointer-events-none"
-                style={{ backgroundImage: `radial-gradient(#D4AF37 0.5px, transparent 0.5px)`, backgroundSize: '40px 40px' }} />
+            {/* EvilEye Background */}
+            <div className="absolute inset-0 z-0">
+                <EvilEye
+                    eyeColor="#4b1111"
+                    intensity={0.5}
+                    pupilSize={0.45}
+                    irisWidth={0.4}
+                    glowIntensity={0}
+                    scale={2.4}
+                    noiseScale={1.9}
+                    pupilFollow={0.8}
+                    flameSpeed={1.1}
+                    backgroundColor="#060010"
+                />
+            </div>
 
             <div className="container mx-auto px-6 relative z-10 flex flex-col items-center">
+
 
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
