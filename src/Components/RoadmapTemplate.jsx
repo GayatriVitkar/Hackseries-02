@@ -89,8 +89,8 @@ const RoadmapTemplate = ({ roadmap, heading }) => {
                 </motion.button>
             </div>
 
-            {/* Timeline Section */}
-            <div className="max-w-6xl mx-auto px-6 pb-32">
+            {/* Content List */}
+            <div className="w-full px-6 md:px-[6vw] pb-32">
                 <div className="relative">
                     {/* Central Vertical Line (Gradient) */}
                     <div className="absolute left-8 md:left-1/2 top-4 bottom-0 w-0.5 bg-linear-to-b from-[#D4AF37] via-[#D4AF37]/40 to-transparent transform md:-translate-x-1/2 z-0" />
