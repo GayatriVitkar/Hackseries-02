@@ -1,1 +1,29 @@
 @import "tailwindcss";
+
+
+@font-face {
+    font-family: 'Boldonse';
+    src: url('./assets/Fonts/Boldonse/Boldonse-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html,
+body,
+#root {
+    background-color: #000000 !important;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    overscroll-behavior-y: none;
+    @apply bg-black text-white;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+}
