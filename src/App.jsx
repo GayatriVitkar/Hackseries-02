@@ -20,8 +20,7 @@ function Home() {
       <Header />
 
 
-      {/* Re-applied margin-bottom to restore the reveal-footer effect safely */}
-      <main className="relative z-10 w-full bg-black shadow-[0_50px_50px_rgba(0,0,0,0.5)] mb-[60vh] md:mb-[75vh]">
+      <main className="relative z-10 w-full bg-black shadow-[0_50px_50px_rgba(0,0,0,0.5)] mb-[60vh] md:mb-[65vh]">
         <Hero />
         <Why />
         <Impact />

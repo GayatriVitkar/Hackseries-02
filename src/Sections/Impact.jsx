@@ -103,7 +103,7 @@ const Impact = () => {
             {/* 2. Gradient Overlay for Stacking Depth */}
             <div className="absolute inset-0 z-[1] pointer-events-none bg-gradient-to-t from-[#050505] via-transparent to-[#050505]" />
 
-            <div className="max-w-7xl mx-auto relative z-10">
+            <div className="w-full px-4 md:px-[6vw] relative z-10">
                 <div className="mb-24 text-center">
                     <h2 className="text-5xl md:text-7xl font-boldonse font-bold text-white uppercase tracking-tighter leading-tight">
                         How Hack<span className="text-[#D4AF37]">Series</span> <br /> Helps Students
