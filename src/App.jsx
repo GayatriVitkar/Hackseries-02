@@ -1,14 +1,21 @@
-import { useState } from 'react'
-import hero from './assets/hero.png'
 import Header from './Components/Header'
-
+import Footer from './Components/Footer'
+import Hero from './Sections/Hero'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
+    /* This single DIV wraps everything */
     <div className="flex flex-col min-h-screen bg-black">
+
       <Header />
+
+      {/* Main content area */}
+      <main className="flex-grow">
+        <Hero />
+      </main>
+
+      <Footer />
+
     </div>
   )
 }
