@@ -40,20 +40,19 @@ const Impact = () => {
     const cardClass = "bg-[#0a0a0a]/90 backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-10 flex flex-col relative overflow-hidden group hover:border-[#D4AF37]/40 shadow-2xl transition-all duration-500 ease-out hover:-translate-y-2 will-change-transform";
 
     return (
-        <section className="py-24 relative overflow-hidden bg-[#050505] min-h-screen flex flex-col justify-center w-full">
-            {/* Background Texture/Gradient */}
-            <div className="absolute inset-0 z-[1] pointer-events-none bg-gradient-to-b from-[#050505] via-[#080808] to-[#050505]" />
-            <div className="absolute inset-0 opacity-[0.02] pointer-events-none z-0" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
+        <section className="py-32 px-6 relative overflow-hidden bg-[#050505] min-h-screen">
+            {/* 1. Canvas Layer */}
+            <canvas
+                ref={canvasRef}
+                className="absolute inset-0 z-0 pointer-events-none opacity-80"
+            />
 
-            <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 relative z-10">
-                <motion.div 
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    className="mb-20 text-center"
-                >
-                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-boldonse font-bold text-white uppercase tracking-tighter leading-tight drop-shadow-2xl">
+            {/* 2. Gradient Overlay for Stacking Depth */}
+            <div className="absolute inset-0 z-[1] pointer-events-none bg-gradient-to-t from-[#050505] via-transparent to-[#050505]" />
+
+            <div className="w-full px-4 md:px-[6vw] relative z-10">
+                <div className="mb-24 text-center">
+                    <h2 className="text-5xl md:text-7xl font-boldonse font-bold text-white uppercase tracking-tighter leading-tight">
                         How Hack<span className="text-[#D4AF37]">Series</span> <br /> Helps Students
                     </h2>
                 </motion.div>

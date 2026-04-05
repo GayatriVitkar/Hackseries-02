@@ -67,8 +67,8 @@ const RoadmapGrid = () => {
     };
 
     return (
-        <section className="relative px-6 md:px-20 py-24 bg-[#010101] overflow-hidden min-h-screen">
-            <div className="max-w-7xl mx-auto">
+        <section id="roadmaps" className="bg-black py-24 text-white relative border-t border-white/10 overflow-hidden">
+            <div className="w-full px-4 md:px-[6vw]">
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
