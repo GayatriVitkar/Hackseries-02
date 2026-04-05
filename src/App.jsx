@@ -13,6 +13,8 @@ import RoadmapDSA from './Pages/RoadmapDSA'
 import RoadmapProgramming from './Pages/RoadmapProgramming'
 import RoadmapCloud from './Pages/RoadmapCloud'
 
+import Gallery from './Pages/Gallery'
+
 function Home() {
   return (
     /* This single DIV wraps everything */
@@ -39,6 +41,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/gallery" element={<Gallery />} />
         <Route path="/roadmaps" element={<Outlet />}>
           <Route path="webdev" element={<RoadmapWebDev />} />
           <Route path="aiml" element={<RoadmapAIML />} />
