@@ -5,7 +5,7 @@ import Hero from './Sections/Hero'
 function App() {
   return (
     /* This single DIV wraps everything */
-    <div className="flex flex-col min-h-screen bg-black">
+    <div className="flex flex-col min-h-screen w-full bg-black overflow-x-hidden">
 
       <Header />
 
