@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Terminal, Shield, Network, Globe2, Crown, Code2, Workflow, Target, Puzzle, Award, UserPlus, Database, Cloud } from 'lucide-react';
 
 const Impact = () => {
+    const canvasRef = useRef(null);
     // Exact user content mapping with updated icons
     const impacts = {
         technical: {
@@ -55,7 +56,7 @@ const Impact = () => {
                     <h2 className="text-5xl md:text-7xl font-boldonse font-bold text-white uppercase tracking-tighter leading-tight">
                         How Hack<span className="text-[#D4AF37]">Series</span> <br /> Helps Students
                     </h2>
-                </motion.div>
+                </div>
 
                 {/* Staggered Full-Width 3-Column Bento Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative z-20 h-auto lg:h-[900px]">
