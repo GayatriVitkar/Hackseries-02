@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import AcesLogo from '../assets/logo (1).png';
 
 const Footer = () => {
+    const footerRef = useRef(null);
+    const [footerHeight, setFooterHeight] = useState(0);
+
+    useEffect(() => {
+        if (!footerRef.current) return;
+        const resizeObserver = new ResizeObserver((entries) => {
+            for (let entry of entries) {
+                setFooterHeight(entry.contentRect.height);
+            }
+        });
+        resizeObserver.observe(footerRef.current);
+        return () => resizeObserver.disconnect();
+    }, []);
+
     const otherLinks = [
         { name: "YouTube", path: "https://www.youtube.com/@ACESDIT" },
         { name: "Blog", path: "https://aces.dypvp.edu.in/blog" },
@@ -16,8 +30,10 @@ const Footer = () => {
     ];
 
     return (
+        <>
         <footer
-            className="relative w-full overflow-hidden text-white flex flex-col justify-between z-0"
+            ref={footerRef}
+            className="fixed bottom-0 left-0 w-full overflow-hidden text-white flex flex-col justify-between z-[0] pointer-events-none"
             style={{ background: "#800000" }}
         >
             <div
@@ -89,6 +105,9 @@ const Footer = () => {
                 <span>© 2026 ACES DIT. All rights reserved.</span>
             </div>
         </footer>
+        {/* Transparent Spacer that sits in the document flow, matching footer height exactly */}
+        <div style={{ height: footerHeight, width: '100%', position: 'relative', zIndex: -1 }} className="pointer-events-none" />
+        </>
     );
 };
 
