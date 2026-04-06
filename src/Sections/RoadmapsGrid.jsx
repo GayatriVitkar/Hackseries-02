@@ -81,7 +81,7 @@ const RoadmapGrid = () => {
     };
 
     return (
-        <section className="relative px-6 md:px-20 py-24 bg-[#010101] overflow-hidden min-h-screen">
+        <section id="event" className="relative px-6 md:px-20 py-24 bg-[#010101] overflow-hidden min-h-screen">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}

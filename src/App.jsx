@@ -14,6 +14,7 @@ import RoadmapProgramming from './Pages/RoadmapProgramming'
 import RoadmapCloud from './Pages/RoadmapCloud'
 
 import Gallery from './Pages/Gallery'
+import ContactUs from './Pages/ContactUs'
 
 function Home() {
   return (
@@ -44,6 +45,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="/contact" element={<ContactUs />} />
         <Route path="/registration" element={<Registration />} />
         <Route path="/roadmaps" element={<Outlet />}>
           <Route path="webdev" element={<RoadmapWebDev />} />
