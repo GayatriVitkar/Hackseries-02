@@ -16,33 +16,35 @@ const Hero = () => {
                     warpAmount={0.5}
                 />
             </div>
-            <div className="container mx-auto px-6 mt-12 md:mt-20 relative z-10 flex flex-col lg:flex-row items-center justify-center lg:justify-end gap-12 lg:gap-20 min-h-[80vh]">
+            <div className="container mx-auto px-6 mt-12 md:mt-20 relative z-10 flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-12 lg:gap-20 min-h-[80vh]">
 
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{
-                        opacity: 0.4, 
-                        scale: 1,
-                        y: [0, -20, 0]
-                    }}
-                    transition={{
-                        opacity: { duration: 2 },
-                        y: { duration: 5, repeat: Infinity, ease: "easeInOut" }
-                    }}
-                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] sm:w-[120%] lg:w-auto flex justify-center -z-10 pointer-events-none"
-                >
-                    <img
-                        src={PhoenixLogo}
-                        alt="Phoenix"
-                        className="w-[32rem] h-[32rem] sm:w-[40rem] sm:h-[40rem] md:w-[48rem] md:h-[48rem] lg:w-[60rem] lg:h-[60rem] object-contain brightness-90 contrast-125 drop-shadow-[0_0_30px_rgba(212,175,55,0.4)] max-w-none"
-                    />
-
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] sm:w-[120%] flex justify-center -z-10 pointer-events-none lg:relative lg:left-auto lg:top-auto lg:translate-x-0 lg:translate-y-0 lg:w-1/2 lg:justify-start lg:z-auto lg:pointer-events-auto">
                     <motion.div
-                        animate={{ opacity: [0.1, 0.4, 0.1] }}
-                        transition={{ duration: 4, repeat: Infinity }}
-                        className="absolute inset-0 bg-[#D4AF37]/10 blur-3xl rounded-full -z-10"
-                    />
-                </motion.div>
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{
+                            opacity: 1, 
+                            scale: 1,
+                            y: [0, -20, 0]
+                        }}
+                        transition={{
+                            opacity: { duration: 2 },
+                            y: { duration: 5, repeat: Infinity, ease: "easeInOut" }
+                        }}
+                        className="relative w-full flex justify-center lg:justify-start"
+                    >
+                        <img
+                            src={PhoenixLogo}
+                            alt="Phoenix"
+                            className="w-[32rem] h-[32rem] sm:w-[40rem] sm:h-[40rem] md:w-[48rem] md:h-[48rem] lg:w-[36rem] lg:h-[36rem] object-contain brightness-90 lg:brightness-150 contrast-125 drop-shadow-[0_0_30px_rgba(212,175,55,0.4)] max-w-none lg:max-w-full opacity-40 lg:opacity-100"
+                        />
+
+                        <motion.div
+                            animate={{ opacity: [0.1, 0.4, 0.1] }}
+                            transition={{ duration: 4, repeat: Infinity }}
+                            className="absolute inset-0 bg-[#D4AF37]/10 blur-3xl rounded-full -z-10"
+                        />
+                    </motion.div>
+                </div>
 
                 <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left z-20">
                     <motion.h1
