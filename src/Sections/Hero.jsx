@@ -16,12 +16,12 @@ const Hero = () => {
                     warpAmount={0.5}
                 />
             </div>
-            <div className="container mx-auto px-6 mt-12 md:mt-20 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
+            <div className="container mx-auto px-6 mt-12 md:mt-20 relative z-10 flex flex-col lg:flex-row items-center justify-center lg:justify-end gap-12 lg:gap-20 min-h-[80vh]">
 
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{
-                        opacity: 1,
+                        opacity: 0.4, 
                         scale: 1,
                         y: [0, -20, 0]
                     }}
@@ -29,12 +29,12 @@ const Hero = () => {
                         opacity: { duration: 2 },
                         y: { duration: 5, repeat: Infinity, ease: "easeInOut" }
                     }}
-                    className="relative w-full lg:w-1/2 flex justify-start lg:justify-start"
+                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] sm:w-[120%] lg:w-auto flex justify-center -z-10 pointer-events-none"
                 >
                     <img
                         src={PhoenixLogo}
                         alt="Phoenix"
-                        className="w-64 h-64 md:w-[28rem] md:h-[28rem] lg:w-[36rem] lg:h-[36rem] object-contain brightness-150 contrast-125 drop-shadow-[0_0_30px_rgba(212,175,55,0.4)]"
+                        className="w-[32rem] h-[32rem] sm:w-[40rem] sm:h-[40rem] md:w-[48rem] md:h-[48rem] lg:w-[60rem] lg:h-[60rem] object-contain brightness-90 contrast-125 drop-shadow-[0_0_30px_rgba(212,175,55,0.4)] max-w-none"
                     />
 
                     <motion.div
@@ -67,7 +67,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 1.5 }}
-                        className="mt-10 flex flex-col sm:flex-row gap-6 w-full sm:w-auto z-20"
+                        className="mt-20 md:mt-10 flex flex-col sm:flex-row gap-6 w-full sm:w-auto z-20"
                     >
                         <a href="https://aces-hackseries.vercel.app/docs/Job%20Description.pdf"
                             target="_blank"
