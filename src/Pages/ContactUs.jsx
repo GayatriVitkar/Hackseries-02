@@ -29,8 +29,7 @@ const ContactUs = () => {
 
         const url = "https://script.google.com/macros/s/AKfycbzoKgq7FkrJY8igkN5xguk_Yq42vBFWnler2FZ1f1-ys5SLcGwL8Ae3SPpE84EDJ5lb/exec";
 
-        // Use GET request with URL parameters instead of POST
-        // This is more reliable with Google Apps Script
+        // Send URL-encoded form fields so Apps Script can read e.parameter
         const params = new URLSearchParams({
             name: formData.name,
             email: formData.email,
@@ -39,19 +38,20 @@ const ContactUs = () => {
         });
 
         try {
-            // Try GET request first (more reliable for testing)
-            const response = await fetch(`${url}?${params.toString()}`, {
-                method: "GET",
+            // Keep no-cors because Apps Script web apps do not always return CORS headers.
+            await fetch(url, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+                },
+                body: params.toString(),
             });
 
-            console.log('Response status:', response.status);
-            
-            if (response.ok) {
-                setSubmitStatus('success');
-                setFormData({ name: '', email: '', phone: '', message: '' });
-            } else {
-                setSubmitStatus('error');
-            }
+            // With no-cors mode, we can't read the response, so we assume success
+            // if no error was thrown
+            setSubmitStatus('success');
+            setFormData({ name: '', email: '', phone: '', message: '' });
         } catch (error) {
             console.error('Error submitting form:', error);
             setSubmitStatus('error');

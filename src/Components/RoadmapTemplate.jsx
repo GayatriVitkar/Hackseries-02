@@ -73,8 +73,7 @@ const RoadmapTemplate = ({ roadmap, heading, resources }) => {
     };
 
     useEffect(() => {
-        //scrollToTop();
-        window.scrollTo({ top: 0 });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);
 
     return (
