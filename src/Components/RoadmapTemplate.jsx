@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { BookOpen, ChevronUpIcon, MoveLeft } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 
@@ -48,9 +48,25 @@ const RoadmapTemplate = ({ roadmap, heading, resources }) => {
         }
     };
 
-    const Icon = ({ src, alt }) => {
-        return <img src={src} alt={alt} className="size-6" />;
-    };
+    function ImageWithFallback({ src, alt }) {
+        const [status, setStatus] = useState("loading");
+        // "loading" | "loaded" | "error"
+
+        return (
+            <>
+                {status !== "loaded" && <div>x</div>}
+
+                <img
+                    src={src}
+                    alt={alt}
+                    className="size-6"
+                    style={{ display: status === "loaded" ? "block" : "none" }}
+                    onLoad={() => setStatus("loaded")}
+                    onError={() => setStatus("error")}
+                />
+            </>
+        );
+    }
 
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -128,7 +144,7 @@ const RoadmapTemplate = ({ roadmap, heading, resources }) => {
                                     className="absolute left-8 md:left-1/2 w-14 h-14 bg-[#0a0a0a] border-2 border-[#D4AF37] rounded-full flex items-center justify-center transform -translate-x-1/2 z-20 shadow-[0_0_20px_rgba(212,175,55,0.1)] group"
                                 >
                                     <div className="text-[#D4AF37] text-2xl transition-transform duration-300">
-                                        <Icon
+                                        <ImageWithFallback
                                             src={item.icon}
                                             alt="X"
                                         />
