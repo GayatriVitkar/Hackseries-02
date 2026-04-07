@@ -24,16 +24,25 @@ const ContactUs = () => {
         setIsSubmitting(true);
 
         const url = "https://script.google.com/macros/s/AKfycbzWMuEajUXjNABzWHesGEzyqVntxkBDaCGqtwAMOmVxqpd2WNJBO-2rQ7HFb6YOyHwb4w/exec";
-        const formDataToSubmit = new FormData(e.target);
+
+        const params = new URLSearchParams();
+        params.append('name', formData.name);
+        params.append('email', formData.email);
+        params.append('phone', formData.phone);
+        params.append('message', formData.message);
 
         try {
             const res = await fetch(url, {
                 method: "POST",
-                body: formDataToSubmit
+                mode: "no-cors",
+                body: params,
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
             });
-            const finalRes = await res.text();
-            console.log(finalRes);
-            alert("Your message has been successfully submitted! We will get back to you soon.");
+
+
+            alert("Your message has been successfully submitted!");
             setFormData({ name: '', email: '', phone: '', message: '' });
         } catch (error) {
             console.error('Error:', error);
